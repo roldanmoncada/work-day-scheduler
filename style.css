@@ -1,3 +1,7 @@
+:root {
+  --black: black;
+}
+
 body {
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
@@ -19,6 +23,12 @@ textarea {
   color: black;
   border-radius: 0;
   border-bottom: 10px solid black;
+}
+
+#currentDay {
+  margin-top: 50px;
+  font-size: 20px;
+  font-weight: 500;
 }
 
 .description {
