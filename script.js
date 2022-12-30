@@ -27,9 +27,9 @@ for (let i = dayStart; i < dayEnd; i++){
 
     $('#currentDay').text(currentDate);
 
-    let currentHour = luxon.DateTime.fromObject({hour: i}).toLocaleString(luxon.DateTime.TIME_SIMPLE);
+    let currenthour = luxon.DateTime.fromObject({hour: i}).toLocaleString(luxon.DateTime.TIME_SIMPLE);
 
-    let hours = $('<div>').addClass('hour col-1').text('currentHour');
+    let hours = $('<div>').addClass('hour col-1').text('currenthour');
 
     let input = $('<textarea>').addClass('description col-10 past').attr('id', 'input').attr('data-id', i).val(savedData[i]);
 
@@ -68,13 +68,15 @@ const saveBtnClick = saveInput => {
 $('textarea').on('blur', function(event){
     let textAreaID = $(this).attr('data-id');
 
+    console.log(event.relatedTarget);
+
     if(event.relatedTarget){
-        if(event.relatedTarget.dataset.id === $(`button[data-dit="${textAreaID}"]`).attr('data-id')){
+        if(event.relatedTarget.dataset.id === $(`button[data-id="${textAreaID}"]`).attr('data-id')){
             let savedText = $('#storage-updated')
 
             saveBtnClick(textAreaID);
 
-            savedText.html('Task saved to local storage ' + `<i class="fas fa-check-double"></i>`).addClass('text-center').show();
+            savedText.html('Task saved to local storage!').addClass('text-center').show();
             setTimeout(() => {
                 savedText.hide()
             }, 2000);
